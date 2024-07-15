@@ -1,9 +1,10 @@
 const FeaturedProducts = require("../../schema/featuredProducts");
 
-const featuredProducts = async (req, res) => {
+const insertFeatured = async (req, res) => {
    try {
-      const result = await FeaturedProducts.find().populate("template_id");
-      res.status(200).send(result);
+      const productId = req.body;
+      await FeaturedProducts(productId).save();
+      res.send("Id inserted").status(200);
    } catch (err) {
       console.log(err);
       res.status(500).json({ error: "Internal Server Error" });
@@ -11,4 +12,4 @@ const featuredProducts = async (req, res) => {
 };
 
 // Export module
-module.exports = featuredProducts;
+module.exports = insertFeatured;
