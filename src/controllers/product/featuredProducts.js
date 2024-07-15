@@ -1,8 +1,8 @@
-const FeaturedProducts = require("../../schema/featuredProducts");
+const FeaturedProducts = require("../../schema/featuredProductSchema");
 
 const featuredProducts = async (req, res) => {
    try {
-      const result = await FeaturedProducts.find().populate("template_id");
+      const result = await FeaturedProducts.find().populate("template");
       res.status(200).send(result);
    } catch (err) {
       console.log(err);

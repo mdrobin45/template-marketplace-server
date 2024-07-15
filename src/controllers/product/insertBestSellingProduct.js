@@ -1,9 +1,9 @@
-const FeaturedProducts = require("../../schema/featuredProductSchema");
+const BestSellingProduct = require("../../schema/bestSellingSchema");
 
-const insertFeatured = async (req, res) => {
+const insertBestSellingProduct = async (req, res) => {
    try {
       const productId = req.body;
-      await FeaturedProducts(productId).save();
+      await BestSellingProduct(productId).save();
       res.send("Id inserted").status(200);
    } catch (err) {
       console.log(err);
@@ -12,4 +12,4 @@ const insertFeatured = async (req, res) => {
 };
 
 // Export module
-module.exports = insertFeatured;
+module.exports = insertBestSellingProduct;

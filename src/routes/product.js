@@ -4,6 +4,8 @@ const getProducts = require("../controllers/product/getProducts");
 const filterByCategory = require("../controllers/product/filterByCategory");
 const featuredProducts = require("../controllers/product/featuredProducts");
 const insertFeatured = require("../controllers/product/insertFeatured");
+const bestSelling = require("../controllers/product/bestSelling");
+const insertBestSellingProduct = require("../controllers/product/insertBestSellingProduct");
 const productRoute = express.Router();
 
 // Get all products
@@ -15,11 +17,17 @@ productRoute.get("/filter", filterByCategory);
 // Featured products
 productRoute.get("/featured", featuredProducts);
 
+// Get Best selling products
+productRoute.get("/best-selling", bestSelling);
+
 // Insert feature product id
-productRoute.post("/insert-featured", insertFeatured);
+productRoute.post("/best-selling", insertBestSellingProduct);
+
+// Insert feature product id
+productRoute.post("/featured", insertFeatured);
 
 // Insert product
-productRoute.post("/insert", insertProduct);
+productRoute.post("/", insertProduct);
 
 // Export route
 module.exports = productRoute;

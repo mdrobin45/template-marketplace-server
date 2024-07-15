@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const featuredProductSchema = new mongoose.Schema(
    {
-      template_id: {
+      template: {
          type: mongoose.Schema.Types.ObjectId,
          required: true,
          ref: "Product",

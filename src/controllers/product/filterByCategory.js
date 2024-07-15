@@ -1,4 +1,4 @@
-const Product = require("../../schema/product");
+const Product = require("../../schema/productSchema");
 
 const filterByCategory = async (req, res) => {
    try {
