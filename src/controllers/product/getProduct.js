@@ -1,8 +1,9 @@
 const Product = require("../../schema/productSchema");
 
-const getProducts = async (req, res) => {
+const getProduct = async (req, res) => {
    try {
-      const result = await Product.find();
+      const { id } = req.query;
+      const result = await Product.findById(id).populate("templateAuthor");
       res.status(200).send(result);
    } catch {
       res.status(500).json({ error: "Internal Server Error" });
@@ -10,4 +11,4 @@ const getProducts = async (req, res) => {
 };
 
 // Export module
-module.exports = getProducts;
+module.exports = getProduct;

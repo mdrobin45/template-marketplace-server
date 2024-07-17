@@ -6,7 +6,11 @@ const featuredProducts = require("../controllers/product/featuredProducts");
 const insertFeatured = require("../controllers/product/insertFeatured");
 const bestSelling = require("../controllers/product/bestSelling");
 const insertBestSellingProduct = require("../controllers/product/insertBestSellingProduct");
+const getProduct = require("../controllers/product/getProduct");
 const productRoute = express.Router();
+
+// Get single product
+productRoute.get("/", getProduct);
 
 // Get all products
 productRoute.get("/", getProducts);
