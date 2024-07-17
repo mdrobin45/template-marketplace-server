@@ -19,7 +19,8 @@ const productSchema = new mongoose.Schema(
          required: true,
       },
       templateAuthor: {
-         type: String,
+         type: mongoose.Schema.Types.ObjectId,
+         ref: "Author",
          required: true,
       },
       thumbnail: String,

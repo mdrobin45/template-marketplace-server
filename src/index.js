@@ -2,6 +2,7 @@ const express = require("express");
 const database = require("./database");
 const productRoute = require("./routes/product");
 const cors = require("cors");
+const authorRouter = require("./routes/author");
 require("dotenv").config();
 
 // Initiate app
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
    res.send("Hello");
 });
 app.use("/product", productRoute);
+app.use("/author", authorRouter);
 
 // Listen server
 app.listen(port, () => {
